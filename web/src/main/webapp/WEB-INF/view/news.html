@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Join League of Legends</title>
+    <link rel="shortcut icon" href="/resources/images/header/gt_favicon.png">
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="/resources/css/main.css">
+    <script src="/resources/js/html5shiv.js"></script>
+    <script src="/resources/js/respond.min.js"></script>
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top headroom">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- Button for smallest screens -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+            <a class="navbar-brand" href="/"><img src="/resources/images/header/adventure-logo.png" height="75" width="150"
+                                                  alt="Progressus HTML5 template"></a>
+        </div>
+
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class="active"><a href="/news">News</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">GemeInfo<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="active"><a href="/">Heroes</a></li>
+                    </ul>
+                </li>
+                <li><a href="/forum">Forum</a></li>
+                <li><a href="/user">User</a></li>
+                <li><a class="btn" href="signin">SIGN IN / SIGN UP</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+<!-- /.navbar -->
+
+<header id="head" class="secondary"></header>
+
+<!-- container -->
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="col-md-4 sidebar sidebar-right">
+        <a  class="btn btn-danger top" href="/news/create">Create news</a>
+    </aside>
+    <!-- /Sidebar -->
+
+    <div class="row">
+        <!-- Article main content -->
+        <article class="col-md-8 maincontent" th:each="news : ${allNews}">
+            <h1 class="page-title" th:text="${news.getName()}">Some name</h1>
+            <img width="650" height="400" th:src="${news.getSrcPicture()}"></a>
+            <p th:text="${news.getText().substring(0, 210)}">TextMore </p>
+            <a th:href="@{/news/simple(id=${news.id})}">more</a>
+        </article>
+        <!-- /Article -->
+    </div>
+
+
+</div>    <!-- /container -->
+
+
+<footer id="footer" class="top-space">
+
+    <div class="footer1">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 widget">
+                    <h3 class="widget-title">Contact</h3>
+                    <div class="widget-body">
+                        <p><a href="mailto:#">olfourd@gmail.com</a><br></p>
+                    </div>
+                </div>
+            </div> <!-- /row of widgets -->
+        </div>
+    </div>
+
+    <div class="footer2">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 widget">
+                    <div class="widget-body">
+                        <p class="simplenav">
+                            <a href="/">Home</a> |
+                            <a href="/news">News</a> |
+                            <a href="/forum">Forum</a> |
+                            <a href="/user">User</a> |
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 widget">
+                    <div class="widget-body">
+                        <p class="text-right">
+                            2017, Olfourd.
+                        </p>
+                    </div>
+                </div>
+
+            </div> <!-- /row of widgets -->
+        </div>
+    </div>
+
+</footer>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/resources/js/headroom.min.js"></script>
+<script src="/resources/js/jQuery.headroom.min.js"></script>
+<script src="/resources/js/template.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processor name="com.querydsl.apt.jpa.JPAAnnotationProcessor" />
+        <processor name="lombok.launch.AnnotationProcessorHider$AnnotationProcessor" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="adventure" target="1.8" />
+      <module name="dao" target="1.8" />
+      <module name="JD2project" target="1.8" />
+      <module name="project" target="1.8" />
+      <module name="service" target="1.8" />
+      <module name="web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
