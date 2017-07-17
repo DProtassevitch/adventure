@@ -3,7 +3,7 @@ package by.adventure.entity;
 import by.adventure.entity.common.BaseEntity;
 import by.adventure.entity.other.Address;
 import lombok.*;
-
+import org.hibernate.validator.constraints.*;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -45,6 +45,7 @@ public class User extends BaseEntity {
     @Column(name = "mail")
     @Getter
     @Setter
+    @Email
     private String mail;
 
     @Column(name = "pass_to_picture")

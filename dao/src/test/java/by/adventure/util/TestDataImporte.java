@@ -2,8 +2,6 @@ package by.adventure.util;
 
 import by.adventure.entity.*;
 import by.adventure.entity.other.Address;
-import by.adventure.entity.other.HeroRole;
-import by.adventure.entity.other.KeyAbility;
 import by.adventure.entity.other.UserRole;
 import org.hibernate.Session;
 import org.springframework.stereotype.Component;
@@ -18,13 +16,6 @@ public final class TestDataImporte {
         User userQwerty = saveUser(session, "Qwerty", "Qwerty", "AmazingQwerty");
         User userOlfourd = saveUser(session, "Olfourd", "Qwerty", "AmazingOlfourd");
         User userDeGriz = saveUser(session, "DeGriz", "Qwerty", "AmazingDeGriz");
-
-        Hero alistar = saveHero(session, "Alistar", HeroRole.TANK);
-        HeroAbility heroAbility = saveAbility(session, "Triumphant Roar", KeyAbility.PASSIVE, alistar);
-        HeroAbility heroAbility1 = saveAbility(session, "Pulverize", KeyAbility.Q, alistar);
-        HeroAbility heroAbility2 = saveAbility(session, "Headbutt", KeyAbility.W, alistar);
-        HeroAbility heroAbility3 = saveAbility(session, "Trample", KeyAbility.W, alistar);
-        HeroAbility heroAbility4 = saveAbility(session, "Unbreakable Will", KeyAbility.R, alistar);
 
         News news = saveNews(session, "This is the first News!", "hi", userOlfourd);
         saveNewsCommentTest(session, "hello from test", userOlfourd, news);
@@ -82,15 +73,4 @@ public final class TestDataImporte {
         return user;
     }
 
-    private Hero saveHero(Session session, String name, HeroRole heroRole) {
-        Hero hero = new Hero(name, heroRole);
-        session.save(hero);
-        return hero;
-    }
-
-    private HeroAbility saveAbility(Session session, String name, KeyAbility keyAbility, Hero hero) {
-        HeroAbility heroAbility = new HeroAbility(name, keyAbility, hero);
-        session.save(heroAbility);
-        return heroAbility;
-    }
 }

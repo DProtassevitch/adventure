@@ -22,10 +22,10 @@ public class SignInSugnUpController {
         return new User();
     }
 
-    @GetMapping(path = "/signin")
+/*    @GetMapping(path = "/signin")
     public String getSignInPage(){
        return "signin";
-    }
+    }*/
 
     @GetMapping(path = "/signup")
     public String getSignUpPage(){

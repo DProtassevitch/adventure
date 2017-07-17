@@ -1,6 +1,8 @@
 function login() {
     var username = $("#username").val();
     var password = $("#password").val();
+    $('#login-form').on('submit', function(ev) {
+        ev.preventDefault();
     $.ajax("/signin", {
         method: "POST",
         contentType: "application/json",
@@ -10,7 +12,7 @@ function login() {
         })
     }).done(function (validationMessage) {
         $("#validation-message").text(validationMessage.text);
-    });
+    });});
 }
 
 function saveUserLogin() {
